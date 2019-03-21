@@ -1,6 +1,6 @@
 # gify
 
-> giphy API
+> Giphy API Vue.js
 
 ## Build Setup
 

@@ -8,9 +8,10 @@
 </template>
 
 <script>
-import Search from "./components/Search.vue";
-import Preview from "./components/Preview.vue";
+import Search from "./components/Search.vue"
+import Preview from "./components/Preview.vue"
 export default {
+    
     name: "app",
     components: {
         Search,
@@ -18,34 +19,35 @@ export default {
     },
     data() {
         return {
+            YOUR_API_KEY: 'your key',
             isLoading: true,
             gifs: []
-        };
+        }
     },
     methods: {
         doQuery(url) {
             fetch(url)
                 .then(res => {
-                    return res.json();
+                    return res.json()
                 })
                 .then(res => {
-                    this.gifs = res.data;
-                    this.isLoading = false;
+                    this.gifs = res.data
+                    this.isLoading = false
                 });
         },
         handleSearch(query) {
-            this.gifs = [];
-            this.isLoading = true;
-            const url = `http://api.giphy.com/v1/gifs/search?q=${query}&api_key=aqQPicLNYp8OT6xhJmNFr8lK7x2ZGlwt`;
-            this.doQuery(url);
+            this.gifs = []
+            this.isLoading = true
+            const url = `http://api.giphy.com/v1/gifs/search?q=${query}&api_key=${this.YOUR_API_KEY}`;
+            this.doQuery(url)
         }
     },
     created() {
         const url =
-            "http://api.giphy.com/v1/gifs/trending?api_key=aqQPicLNYp8OT6xhJmNFr8lK7x2ZGlwt";
-        this.doQuery(url);
+            `http://api.giphy.com/v1/gifs/trending?api_key=${this.YOUR_API_KEY}`
+        this.doQuery(url)
     }
-};
+}
 </script>
 
 <style>

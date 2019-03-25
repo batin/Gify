@@ -10,14 +10,14 @@ export default {
     data() {
         return {
             query: ""
-        };
+        }
     },
     methods: {
         handleSearch() {
-            this.$emit("SearchRequested", this.query);
+            this.$emit("SearchRequested", this.query)
         }
     }
-};
+}
 </script>
 
 <style>
